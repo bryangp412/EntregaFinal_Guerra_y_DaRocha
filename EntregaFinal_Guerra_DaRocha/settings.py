@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'AppEntregaFinal'
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'EntregaFinal_Guerra_DaRocha.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r'C:\Users\BRYANG\Desktop\Coderhouse\EntregaFinal\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
