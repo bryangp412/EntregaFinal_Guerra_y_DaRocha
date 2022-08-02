@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Mi template</title>
+{% endblock title %}
+
+{% block main %}
+<ul>
+        {% for objeto in lista_objeto %}
+        <li>{{objeto.nombre}}</li>
+        {% endfor %}
+</ul>
+<div class="boton">
+        <a class="btn btn-primary btn-xl text-uppercase" href="">Editar las peículas en visualización</a>
+</div>
+
+{% endblock main %}
+    
+{% block titulo_pequeno %}
+
+{% endblock titulo_pequeno %}
+
+{% block titulo_grande %}
+Mira nuestra Cartelera
+{% endblock titulo_grande %}
+

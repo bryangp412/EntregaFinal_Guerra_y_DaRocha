@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Contactanos</title>
+{% endblock title %}
+
+{% block main %}
+<br>
+<br>
+
+<form action="https://formsubmit.co/bryan_gp412@outlook.com" method="POST">
+  <div class="mb-3">
+    <label class="form-label">Nombre Completo</label>
+    <input name="name" type="text" class="form-control" required />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Dirección de Email</label>
+    <input name="email" type="email" class="form-control" required />
+    <div id="emailHelp" class="form-text">
+      No te preocupes, no lo compartiremos con nadie más.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Teléfono (opcional)</label>
+    <input name="phone" \type="tel" class="form-control" />
+    <div id="phoneHelp" class="form-text">
+      Si prefieres hablar con una persona directamente.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Tu mensaje</label>
+    <textarea
+      name="message"
+      class="form-control"
+      rows="3"
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+{% endblock main %}
+    
+{% block titulo_pequeno %}
+
+{% endblock titulo_pequeno %}
+
+{% block titulo_grande %}
+Contactanos
+{% endblock titulo_grande %}
+
