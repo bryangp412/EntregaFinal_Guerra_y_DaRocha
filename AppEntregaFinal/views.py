@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 
-from AppEntregaFinal.models import Prueba
+from AppEntregaFinal.models import Pelicula, Locales,Productos
 # Create your views here.
 
 def index(request):
