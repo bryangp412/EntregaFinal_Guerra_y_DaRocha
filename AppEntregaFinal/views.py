@@ -36,3 +36,5 @@ def nosotros(request):
 
 def contacto(request):
     return render(request, 'contacto.html')
+def agregarpeli(request):
+    return render(request, 'agregarpeli.html')
