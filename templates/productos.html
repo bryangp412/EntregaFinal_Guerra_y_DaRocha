@@ -6,12 +6,12 @@
 
 {% block main %}
 <ul>
-        {% for objeto in lista_objeto %}
-        <li>{{objeto.nombre}}</li>
+        {% for producto in lista_productos %}
+        <li>{{producto.nombre}}, {{producto.precio}}</li>
         {% endfor %}
 </ul>
 <div class="boton">
-        <a class="btn btn-primary btn-xl text-uppercase" href={% url 'agregarpeli' %}>Editar las productos en visualización</a>
+        <a class="btn btn-primary btn-xl text-uppercase" href={% url 'agregarprodu' %}>Editar las productos en visualización</a>
 </div>
 {% endblock main %}
     

@@ -13,33 +13,16 @@ def index(request):
     return render(request, 'index.html')
 
 def cartelera(request):
-    template = loader.get_template('cartelera.html')
-    
-    prueba1= Pelicula(nombre='Pepe')
-    prueba2= Pelicula(nombre='Pepa')
-    prueba3= Pelicula(nombre='Pepq')
-    
-    render = template.render({'lista_objeto':[prueba1,prueba2,prueba3]})
-    return HttpResponse(render)
+    lista_pelicula = Pelicula.objects.all()
+    return render(request, 'cartelera.html',{"lista_pelicula": lista_pelicula})
 
 def locales(request):
-    template = loader.get_template('locales.html')
-
-    prueba1= Locales(nombre='Pepe')
-    prueba2= Locales(nombre='Pepa')
-    prueba3= Locales(nombre='Pepq')
-    
-    render = template.render({'lista_objeto':[prueba1,prueba2,prueba3]})
-    return HttpResponse(render)
+    lista_locales = Locales.objects.all()
+    return render(request, 'locales.html',{"lista_locales": lista_locales})
 
 def productos(request):
-    template = loader.get_template('productos.html')
-    prueba1= Locales(nombre='Pepe')
-    prueba2= Locales(nombre='Pepa')
-    prueba3= Locales(nombre='Pepq')
-    
-    render = template.render({'lista_objeto':[prueba1,prueba2,prueba3]})
-    return HttpResponse(render)
+    lista_productos = Productos.objects.all()
+    return render(request, 'productos.html',{"lista_productos": lista_productos})
 
 def privacidad(request):
     return render(request, 'privacidad.html')
@@ -70,23 +53,40 @@ def agregarpeli(request):
     
     form_pelicula =PeliculaForm()
     return render(request, 'agregarpeli.html',{"form":form_pelicula})
-def lista_pelicula(request):
-    template = loader.get_template('cartelera.html')
-    lista_pelicula = Pelicula.objects.all()
-    render = template.render({'lista_pelicula': lista_pelicula})
-    return HttpResponse(render)
 def agregarlocal(request):
-    return 0
+    if request.method == 'POST':
+        form = LocalesForm (request.POST)
+        
+        if form.is_valid():
+            data=form.cleaned_data
+            locales = Locales(
+                nombre=data.get('nombre'),
+                direccion=data.get('direccion')
+            )
+            locales.save()
+            lista_locales = Locales.objects.all()
+            return render(request, 'locales.html',{"lista_locales": lista_locales})
+        else:
+            return render(request, 'agregarlocal.html', {'form':form})
+    
+    form_locales =PeliculaForm()
+    return render(request, 'agregarlocal.html',{"form":form_locales})
 def agregarprodu(request):
-    if request.method == "POST":
-        formularioProducto = ProductoForm(request.POST)
-        if formularioProducto.is_valid():
-            informacion = formularioProducto.cleaned_data
-            producto = Productos()
-            producto.nombre = informacion['nombre']
-            producto.precio = informacion['precio']
+    if request.method == 'POST':
+        form = ProductoForm (request.POST)
+        
+        if form.is_valid():
+            data=form.cleaned_data
+            producto = Productos(
+                nombre=data.get('nombre'),
+                precio=data.get('precio')
+            )
             producto.save()
-    else:
-        formularioProducto = ProductoForm()   
-    return render(request, 'agregarprodu.html')
+            lista_productos = Productos.objects.all()
+            return render(request, 'productos.html',{"lista_productos": lista_productos})
+        else:
+            return render(request, 'agregarprodu.html', {'form':form})
+    
+    form_producto =PeliculaForm()
+    return render(request, 'agregarprodu.html',{"form":form_producto})
 

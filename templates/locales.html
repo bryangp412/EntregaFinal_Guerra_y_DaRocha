@@ -6,12 +6,12 @@
 
 {% block main %}
 <ul>
-        {% for objeto in lista_objeto %}
-        <li>{{objeto.nombre}}</li>
+        {% for locales in lista_locales %}
+        <li>{{locales.nombre}}, {{locales.direccion}}</li>
         {% endfor %}
 </ul>
 <div class="boton">
-        <a class="btn btn-primary btn-xl text-uppercase" href={% url 'agregarpeli' %}>Editar las locales en visualización</a>
+        <a class="btn btn-primary btn-xl text-uppercase" href={% url 'agregarlocal' %}>Editar las locales en visualización</a>
 </div>
 {% endblock main %}
     

@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block main %}
-<form action="producto" method="POST"> {% csrf_token %}
+<form action={% url 'agregarprodu' %}  method="POST"> {% csrf_token %}
         <div class="form-group row">
             <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
             <div class="col-sm-10">
