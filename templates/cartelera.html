@@ -6,8 +6,8 @@
 
 {% block main %}
 <ul>
-        {% for objeto in lista_objeto %}
-        <li>{{objeto.nombre}}</li>
+        {% for pelicula in lista_pelicula %}
+        <li>{{pelicula.nombre}},{{pelicula.categoria}}</li>
         {% endfor %}
 </ul>
 <div class="boton">

@@ -3,7 +3,7 @@ from .views import agregarlocal, agregarpeli, agregarprodu, contacto, index, car
 
 urlpatterns = [
     path("", index, name="index"),
-    path('cartelera', cartelera),
+    path('cartelera', cartelera, name="cartelera"),
     path('locales', locales),
     path('productos', productos),
     path("principal", index),
@@ -13,7 +13,7 @@ urlpatterns = [
     path("contacto", contacto, name="contacto"),
     path("agregarpeli", agregarpeli, name="agregarpeli"),
     path("agregarprodu", agregarprodu, name="agregarprodu"),
-    path("agregarlocal", agregarlocal, name="agregarlocal")
+    path("agregarlocal", agregarlocal, name="agregarlocal"),
     
     
     
