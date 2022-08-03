@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Agrega una local</title>
+{% endblock title %}
+
+{% block main %}
+<form action="pelicula" method="POST"> {% csrf_token %}
+        <div class="form-group row">
+            <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+            <div class="col-sm-10">
+                <input id="nombre" name="nombre" />
+            </div>
+            <label for="direccion" class="col-sm-2 col-form-label">Dirección</label>
+            <div class="col-sm-10">
+                <input id="direccion" name="direccion" />
+            </div>
+            <br>
+            <br>
+            <div class="col-sm-2 col-form-label"></div>
+            <div class="col-sm-10">
+                
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </div>
+
+</form>
+
+{% endblock main %}
+    
+{% block titulo_pequeno %}
+
+{% endblock titulo_pequeno %}
+
+{% block titulo_grande %}
+Agrega una local
+{% endblock titulo_grande %}
+

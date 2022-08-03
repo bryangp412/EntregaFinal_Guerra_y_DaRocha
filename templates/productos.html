@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
 {% block title %}
-<title>Mi template</title>
+<title>Confitería</title>
 {% endblock title %}
 
 {% block main %}
@@ -10,6 +10,9 @@
         <li>{{objeto.nombre}}</li>
         {% endfor %}
 </ul>
+<div class="boton">
+        <a class="btn btn-primary btn-xl text-uppercase" href={% url 'agregarpeli' %}>Editar las productos en visualización</a>
+</div>
 {% endblock main %}
     
 {% block titulo_pequeno %}
@@ -17,6 +20,6 @@
 {% endblock titulo_pequeno %}
 
 {% block titulo_grande %}
-Mira nuestra Cartelera
+Confitería
 {% endblock titulo_grande %}
 
