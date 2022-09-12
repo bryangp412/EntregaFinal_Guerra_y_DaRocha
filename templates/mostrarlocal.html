@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Detalle del local</title>
+{% endblock title %}
+
+{% block main %}
+<p>
+        <a href={% url 'locales_log' %}>Volver</a>
+</p>
+
+<p>
+        <ul>
+            <li>
+                Nombre del local: <i> {{ local.nombre}}</i>
+            </li>
+            <li>
+                Direccion del local: <i> {{ local.direccion}}</i>
+            </li>
+        </ul>
+</p>
+
+{% endblock main %}
+    
+{% block titulo_pequeno %}
+
+{% endblock titulo_pequeno %}
+
+{% block titulo_grande %}
+Detalle de local
+{% endblock titulo_grande %}
+

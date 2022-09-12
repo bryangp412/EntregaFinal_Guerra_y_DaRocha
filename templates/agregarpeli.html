@@ -5,24 +5,13 @@
 {% endblock title %}
 
 {% block main %}
-<form action={% url 'agregarpeli' %} method="POST"> {% csrf_token %}
-        <div class="form-group row">
-            <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
-            <div class="col-sm-10">
-                <input id="nombre" name="nombre" />
-            </div>
-            <label for="categoria" class="col-sm-2 col-form-label">Categoria</label>
-            <div class="col-sm-10">
-                <input id="categoria" name="categoria" />
-            </div>
-            <br>
-            <br>
-            <div class="col-sm-2 col-form-label"></div>
-            <div class="col-sm-10">
-                
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </div>
-        </div>
+<form action={% url 'agregarpeli' %} method="POST"> 
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <br>
+    <button>Agregar</button>
 
 </form>
 

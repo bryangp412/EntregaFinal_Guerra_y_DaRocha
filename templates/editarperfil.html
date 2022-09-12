@@ -1,17 +1,17 @@
 {% extends 'index.html' %}
 
 {% block title %}
-<title>Agrega una local</title>
+<title>Edite perfil</title>
 {% endblock title %}
 
 {% block main %}
-<form action={% url 'agregarlocal' %} method="POST">
+<form action={% url 'editar_perfil' %} method="POST" enctype="multipart/form-data"> 
     {% csrf_token %}
     <table>
         {{form.as_table}}
     </table>
     <br>
-    <button>Agregar</button>
+    <button>Editar</button>
 
 </form>
 
@@ -22,6 +22,6 @@
 {% endblock titulo_pequeno %}
 
 {% block titulo_grande %}
-Agrega un local
+Edite perfil
 {% endblock titulo_grande %}
 

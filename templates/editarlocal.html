@@ -1,17 +1,18 @@
 {% extends 'index.html' %}
 
 {% block title %}
-<title>Agrega una local</title>
+<title>Edite un local</title>
 {% endblock title %}
 
 {% block main %}
-<form action={% url 'agregarlocal' %} method="POST">
+<form action={% url 'editar_local' local.id %} method="POST">
     {% csrf_token %}
     <table>
         {{form.as_table}}
     </table>
     <br>
-    <button>Agregar</button>
+    <button onclick='return ConfirmEdit()'>Editar</button>
+    <button onclick='return CancelEdit()' action={% url 'locales_log' %}>Cancelar</button>
 
 </form>
 
@@ -22,6 +23,6 @@
 {% endblock titulo_pequeno %}
 
 {% block titulo_grande %}
-Agrega un local
+Edite un local
 {% endblock titulo_grande %}
 

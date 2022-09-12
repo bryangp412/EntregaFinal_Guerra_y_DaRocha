@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Detalle de producto</title>
+{% endblock title %}
+
+{% block main %}
+<p>
+        <a href={% url 'productos_log' %}>Volver</a>
+</p>
+
+<p>
+        <ul>
+            <li>
+                Nombre del producto: <i> {{ producto.nombre}}</i>
+            </li>
+            <li>
+                Precio del producto: <i> {{ producto.precio}}</i>
+            </li>
+        </ul>
+</p>
+
+{% endblock main %}
+    
+{% block titulo_pequeno %}
+
+{% endblock titulo_pequeno %}
+
+{% block titulo_grande %}
+Detalle de producto
+{% endblock titulo_grande %}
+

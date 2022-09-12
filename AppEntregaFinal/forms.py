@@ -10,6 +10,14 @@ class PeliculaForm(forms.Form):
     categoria = forms.CharField(max_length=40)
 
 class ProductoForm(forms.Form):
-    nombre = forms.CharField(max_length=40,)
+    nombre = forms.CharField(max_length=40)
     precio = forms.FloatField()
+    
+class BuscaPelicula(forms.Form):
+    nombre = forms.CharField(max_length=40, required=False)
+    
+class BuscaLocales(forms.Form):
+    nombre = forms.CharField(max_length=40, required=False)
 
+class BuscaProductos(forms.Form):
+    nombre = forms.CharField(max_length=40, required=False)

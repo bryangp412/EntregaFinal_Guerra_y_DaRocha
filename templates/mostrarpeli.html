@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Detalle de pelicula</title>
+{% endblock title %}
+
+{% block main %}
+<p>
+        <a href={% url 'cartelera_log' %}>Volver</a>
+</p>
+
+<p>
+        <ul>
+            <li>
+                Nombre de la pelicula: <i> {{ pelicula.nombre}}</i>
+            </li>
+            <li>
+                Categoria de la pelicula: <i> {{ pelicula.categoria}}</i>
+            </li>
+        </ul>
+</p>
+
+{% endblock main %}
+    
+{% block titulo_pequeno %}
+
+{% endblock titulo_pequeno %}
+
+{% block titulo_grande %}
+Detalle de pelicula
+{% endblock titulo_grande %}
+

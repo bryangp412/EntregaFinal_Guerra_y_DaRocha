@@ -6,6 +6,10 @@
 
 {% block main %}
 <p>
+        <a href={% url 'agregarpeli' %}>Crear pelicula</a>
+</p>
+
+<p>
         <form action={% url 'cartelera' %}>
         {{form}}
         <button>Buscar</button>
@@ -18,14 +22,16 @@
 {% else %}
         <ul>
                 {% for pelicula in lista_pelicula %}
-                <li>{{pelicula.nombre}}, {{pelicula.categoria}}</li>
+                <li>
+                        {{pelicula.nombre}}, {{pelicula.categoria}}
+                        <a href={% url 'mostrar_pelicula' pelicula.id %}>Mostrar</a>
+                        <a href={% url 'editar_pelicula' pelicula.id %}>Editar</a>
+                        <a href={% url 'eliminar_pelicula' pelicula.id %} onclick='return ConfirmDelete()'>Eliminar</a>
+                </li>
                 {% endfor %}
         </ul>
 
 {% endif %}
-<div class="boton">
-        <a class="btn btn-primary btn-xl text-uppercase" href={% url 'cartelera_log' %}>Editar o agregar películas en visualización</a>
-</div>
 
 {% endblock main %}
     
@@ -34,6 +40,6 @@
 {% endblock titulo_pequeno %}
 
 {% block titulo_grande %}
-Mira nuestra Cartelera
+Edite las peliculas en cartelera
 {% endblock titulo_grande %}
 

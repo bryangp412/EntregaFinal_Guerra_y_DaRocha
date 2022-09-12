@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Edite la película</title>
+{% endblock title %}
+
+{% block main %}
+<form action={% url 'editar_pelicula' pelicula.id %} method="POST"> 
+    {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <br>
+        <button onclick='return ConfirmEdit()'>Editar</button>
+        <button onclick='return CancelEdit()' action={% url 'cartelera_log' %}>Cancelar</button>
+</form>
+
+{% endblock main %}
+    
+{% block titulo_pequeno %}
+
+{% endblock titulo_pequeno %}
+
+{% block titulo_grande %}
+Edite la película
+{% endblock titulo_grande %}
+

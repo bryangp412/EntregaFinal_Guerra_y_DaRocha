@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Perfil</title>
+{% endblock title %}
+
+{% block main %}
+<h1 style="color: #b57c00";>Perfil de {{request.user.username}}</h1>
+<p>
+    <ul>
+        <li>
+            Nombre: <i> {{ request.user.first_name}}</i>
+        </li>
+        <li>
+            Email: <i> {{ request.user.email}}</i>
+        </li>
+        <li>
+            Facebook: <i> </i>
+        </li>
+        <li>
+            Descripción: <i> {{ request.user.description}}</i>
+        </li>
+        <li>
+            Avatar: <br>
+            {% if request.user.masdatos.avatar %}
+            <img src={{request.user.masdatos.avatar.url}} alt="" height="200px">
+            {% endif %}
+        </li>
+    </ul>
+</p>
+
+<p>
+    <a href={% url 'editar_perfil' %}>Editar perfil</a>
+</p>
+
+{% endblock main %}
+    
+{% block titulo_pequeno %}
+
+{% endblock titulo_pequeno %}
+
+{% block titulo_grande %}
+Perfil
+{% endblock titulo_grande %}
+

@@ -6,6 +6,9 @@
 
 {% block main %}
 <p>
+        <a href={% url 'agregarlocal' %}>Crear local</a>
+</p>
+<p>
         <form action={% url 'locales' %}>
         {{form}}
         <button>Buscar</button>
@@ -18,14 +21,16 @@
 {% else %}
         <ul>
                 {% for locales in lista_locales %}
-                <li>{{locales.nombre}}, {{locales.direccion}}</li>
+                <li>
+                        {{locales.nombre}}, {{locales.direccion}}
+                        <a href={% url 'mostrar_local' locales.id %}>Mostrar</a>
+                        <a href={% url 'editar_local' locales.id %}>Editar</a>
+                        <a href={% url 'eliminar_local' locales.id %} onclick='return ConfirmDelete()'>Eliminar</a>
+                </li>
                 {% endfor %}
         </ul>
 {% endif %}
 
-<div class="boton">
-        <a class="btn btn-primary btn-xl text-uppercase" href={% url 'locales_log' %}>Editar los locales en visualización</a>
-</div>
 {% endblock main %}
     
 {% block titulo_pequeno %}
@@ -33,6 +38,6 @@
 {% endblock titulo_pequeno %}
 
 {% block titulo_grande %}
-Locales
+Edite los datos de los locales
 {% endblock titulo_grande %}
 
