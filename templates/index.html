@@ -32,7 +32,6 @@
                         <li class="nav-item"><a class="nav-link" href={% url 'cartelera' %}>Cartelera</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'productos' %}>Productos</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'locales' %}>Locales</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'contacto' %}>Contactanos</a></li>
                         {% if request.user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link" href={% url 'perfil' %}>Perfil</a></li>
                         <li class="nav-item"><a class="nav-link" href={% url 'logout' %}>Cerrar sesión</a></li>
