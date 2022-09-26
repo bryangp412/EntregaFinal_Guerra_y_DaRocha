@@ -1,6 +1,7 @@
 from django.urls import path
+from . import views
 from django.contrib import admin
-from .views import agregarlocal, agregarpeli, agregarprodu, index, cartelera, locales, mostrar_local, mostrar_pelicula, mostrar_producto, nosotros, productos, privacidad, terminos, cartelera_log, locales_log, productos_log, editar_pelicula, eliminar_pelicula, editar_local, eliminar_local, editar_producto, eliminar_producto
+from .views import agregarlocal, agregarpeli, agregarprodu, index, cartelera, locales, mostrar_local, mostrar_pelicula, mostrar_producto, nosotros, productos, privacidad, terminos, cartelera_log, locales_log, productos_log, editar_pelicula, eliminar_pelicula, editar_local, eliminar_local, eliminar_producto
 
 urlpatterns = [
     path("", index, name="index"),
@@ -21,7 +22,7 @@ urlpatterns = [
     path("editarlocal/<int:id>/", editar_local, name="editar_local"),
     path("eliminarlocal/<int:id>/", eliminar_local, name="eliminar_local"),
     path("productoslog/", productos_log, name="productos_log"),
-    path("editarprodu/<int:id>/", editar_producto, name="editar_producto"),
+    path("editarprodu/<int:pk>/", views.editar_producto.as_view(), name="editar_producto"),
     path("eliminarprodu/<int:id>/", eliminar_producto, name="eliminar_producto"),
     path("mostrarprodu/<int:id>/", mostrar_producto, name="mostrar_producto"),
     path("mostrarlocal/<int:id>/", mostrar_local, name="mostrar_local"),

@@ -1,13 +1,11 @@
 
-from re import template
-from tkinter.tix import Form
-from django import forms
-
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.template import loader
 from AppEntregaFinal.forms import BuscaLocales, BuscaPelicula, BuscaProductos, LocalesForm, PeliculaForm, ProductoForm
 from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from AppEntregaFinal.models import Pelicula, Locales, Productos
 # Create your views here.
@@ -206,24 +204,12 @@ def productos_log(request):
     return render(request, 'productos_logeado.html',{"lista_productos": lista_productos, "form": form})
 
 
-@login_required
-def editar_producto(request, id):
-    producto = Productos.objects.get(id=id)
+class editar_producto(LoginRequiredMixin, UpdateView):
+    model=Productos
+    template_name= 'editarprodu.html'
+    success_url = '/productoslog/'
+    fields = ['nombre','precio','descripcion']
     
-    if request.method == 'POST':
-        form = ProductoForm (request.POST)
-        if form.is_valid():
-            producto.nombre = form.cleaned_data.get('nombre')
-            producto.precio = form.cleaned_data.get('precio')
-            producto.save()
-            
-            return redirect('productos_log')
-        else:
-            return render(request, 'editarprod.html', {'form':form, 'producto':producto})
-        
-    form_producto =ProductoForm(initial={'nombre':producto.nombre, 'precio':producto.precio})
-    return render(request, 'editarprodu.html',{"form":form_producto, 'producto':producto})
-
 @login_required
 def eliminar_producto(request, id):
     producto = Productos.objects.get(id=id)
